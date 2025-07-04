@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:movie_tracker/src/common/extensions/context_extensions.dart';
+import 'package:movie_tracker/src/common/notifiers/theme_notifier.dart';
 import 'package:movie_tracker/src/config/router/router.dart';
+import 'package:movie_tracker/src/config/styles/themes.dart';
+import 'package:provider/provider.dart';
 
 class App extends StatefulWidget {
   const App({super.key});
@@ -27,6 +31,28 @@ class _AppState extends State<App> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(routerConfig: _router);
+    return MultiProvider(
+      providers: [ChangeNotifierProvider(create: (_) => ThemeNotifier())],
+      child: Consumer<ThemeNotifier>(
+        builder: (_, theme, __) => _App(router: _router),
+      ),
+    );
+  }
+}
+
+class _App extends StatelessWidget {
+  const _App({required this.router});
+
+  final GoRouter router;
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp.router(
+      debugShowCheckedModeBanner: false,
+      routerConfig: router,
+      darkTheme: AppThemes.dark(context),
+      theme: AppThemes.light(context),
+      themeMode: context.theme.themeMode,
+    );
   }
 }
