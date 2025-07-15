@@ -10,15 +10,15 @@ abstract class AppThemes {
     useMaterial3: true,
     brightness: Brightness.dark,
     extensions: [const ThemeColors.dark(), ThemeTypography.dark(context)],
-    scaffoldBackgroundColor: AppColors.black,
-    appBarTheme: const AppBarTheme(backgroundColor: AppColors.black),
+    scaffoldBackgroundColor: AppColors.chineseBlack,
+    appBarTheme: const AppBarTheme(backgroundColor: AppColors.chineseBlack),
   );
 
   static ThemeData light(BuildContext context) => ThemeData(
     useMaterial3: true,
     brightness: Brightness.light,
     extensions: [const ThemeColors.light(), ThemeTypography.light(context)],
-    scaffoldBackgroundColor: AppColors.white,
-    appBarTheme: const AppBarTheme(backgroundColor: AppColors.white),
+    scaffoldBackgroundColor: AppColors.ghostWhite,
+    appBarTheme: const AppBarTheme(backgroundColor: AppColors.ghostWhite),
   );
 }
