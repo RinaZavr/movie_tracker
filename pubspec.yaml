@@ -28,3 +28,18 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   generate: true
+  fonts:
+    - family: Montserrat
+      fonts:
+        - asset: fonts/Montserrat/Montserrat-Bold.ttf
+          weight: 700
+        - asset: fonts/Montserrat/Montserrat-SemiBold.ttf
+          weight: 600
+    - family: Nunito
+      fonts:
+        - asset: fonts/Nunito/Nunito-Bold.ttf
+          weight: 700
+        - asset: fonts/Nunito/Nunito-Regular.ttf
+          weight: 400
+        - asset: fonts/Nunito/Nunito-Light.ttf
+          weight: 300
