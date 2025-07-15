@@ -7,10 +7,10 @@ class ThemeShadows extends ThemeExtension<ThemeShadows> {
   const ThemeShadows._({required this.primaryShadow});
 
   ThemeShadows.dark([Color color = AppColors.white30])
-    : primaryShadow = AppShadows.lightThemeShadow.copyWith(color: color);
+    : primaryShadow = AppShadows.darkThemeShadow.copyWith(color: color);
 
   ThemeShadows.light([Color color = AppColors.gray])
-    : primaryShadow = AppShadows.darkThemeShadow.copyWith(color: color);
+    : primaryShadow = AppShadows.lightThemeShadow.copyWith(color: color);
 
   final BoxShadow primaryShadow;
 
