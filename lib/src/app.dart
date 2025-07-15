@@ -4,7 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:movie_tracker/src/common/extensions/context_extensions.dart';
 import 'package:movie_tracker/src/common/notifiers/localization_notifier.dart';
 import 'package:movie_tracker/src/common/notifiers/theme_notifier.dart';
-import 'package:movie_tracker/src/config/localization/app_localizations.dart';
+import 'package:movie_tracker/src/config/localization/generated/app_localizations.dart';
 import 'package:movie_tracker/src/config/router/router.dart';
 import 'package:movie_tracker/src/config/styles/themes.dart';
 import 'package:provider/provider.dart';

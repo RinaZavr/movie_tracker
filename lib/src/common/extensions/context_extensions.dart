@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:movie_tracker/src/common/notifiers/localization_notifier.dart';
 import 'package:movie_tracker/src/common/notifiers/theme_notifier.dart';
-import 'package:movie_tracker/src/config/localization/app_localizations.dart';
+import 'package:movie_tracker/src/config/localization/generated/app_localizations.dart';
 import 'package:movie_tracker/src/config/styles/extensions/theme_colors.dart';
 import 'package:movie_tracker/src/config/styles/extensions/theme_typography.dart';
 import 'package:provider/provider.dart';

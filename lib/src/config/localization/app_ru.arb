@@ -1,4 +1,155 @@
 {
   "@@locale": "ru",
-  "hello": "Привет"
+  "popularMovies": "Популярные",
+  "@popularMovies": {
+    "description": "Категория Популярные на главной"
+  },
+  "nowPlayingMovies": "Сейчас в кинотеатрах",
+  "@nowPlayingMovies": {
+    "description": "Категория Сейчас в кинотеатрах на главной"
+  },
+  "upcomingMovies": "Скоро выйдут",
+  "@upcomingMovies": {
+    "description": "Категория Скоро выйдут на главной"
+  },
+  "movieRuntimeHours": "ч.",
+  "@movieRuntimeHours": {
+    "description": "Сокращение часов в продолжительности фильма"
+  },
+  "movieRuntimeMinutes": "мин.",
+  "@movieRuntimeMinutes": {
+    "description": "Сокращение минут в продолжительности фильма"
+  },
+  "movieTrailer": "Трейлер",
+  "@movieTrailer": {
+    "description": "Кнопка трейлера в карточке фильма"
+  },
+  "movieStatus": "Статус",
+  "@movieStatus": {
+    "description": "Статус фильма в таблице описания в карточке фильма"
+  },
+  "movieReleaseDate": "Дата выхода",
+  "@movieReleaseDate": {
+    "description": "Дата выхода фильма в таблице описания в карточке фильма"
+  },
+  "movieBudget": "Бюджет",
+  "@movieBudget": {
+    "description": "Бюджет фильма в таблице описания в карточке фильма"
+  },
+  "movieRevenue": "Доход",
+  "@movieRevenue": {
+    "description": "Доход с фильма в таблице описания в карточке фильма"
+  },
+  "movieCompanies": "Компании",
+  "@movieCompanies": {
+    "description": "Компании производства фильма в таблице описания в карточке фильма"
+  },
+  "movieCountries": "Страны",
+  "@movieCountries": {
+    "description": "Страны производства фильма в таблице описания в карточке фильма"
+  },
+  "goTo": "Перейти",
+  "@goTo": {
+    "description": "Кнопка Перейти на IMDB в таблице описания в карточке фильма"
+  },
+  "movieGallery": "Галерея",
+  "@movieGallery": {
+    "description": "Категория Галерея в карточке фильма"
+  },
+  "movieReviews": "Отзывы",
+  "@movieReviews": {
+    "description": "Категория Отзывы в карточке фильма"
+  },
+  "movieRecommendations": "Рекомендации",
+  "@movieRecommendations": {
+    "description": "Категория Рекомендации в карточке фильма"
+  },
+  "searchInputHint": "Что ищем?",
+  "@searchInputHint": {
+    "description": "Подсказка в поле поиска"
+  },
+  "searchFilters": "Фильтры",
+  "@searchFilters": {
+    "description": "Фильтры на экране поиска"
+  },
+  "filterYear": "Год",
+  "@filterYear": {
+    "description": "Фильтр Год на экране фильтров"
+  },
+  "filterYearHint": "Введите год выпуска фильма",
+  "@filterYearHint": {
+    "description": "Подсказка в поле Год на экране фильтров"
+  },
+  "filterCountry": "Страна",
+  "@filterCountry": {
+    "description": "Фильтр Страна на экране фильтров"
+  },
+  "filterCountryHint": "Введите страну производства фильма",
+  "@filterCountryHint": {
+    "description": "Подсказка в поле Страна на экране фильтров"
+  },
+  "filterReset": "Сбросить фильтр",
+  "@filterReset": {
+    "description": "Кнопка Сбросить фильтр на экране фильтров"
+  },
+  "filterApply": "Показать результаты",
+  "@filterApply": {
+    "description": "Кнопка Показать результаты на экране фильтров"
+  },
+  "favorites": "Буду смотреть",
+  "@favorites": {
+    "description": "Категория Буду смотреть в избранны["
+  },
+  "watchlist": "Просмотрено",
+  "@watchlist": {
+    "description": "Категория Просмотрено в избранных"
+  },
+  "rated": "Оценены",
+  "@rated": {
+    "description": "Категория Оценены в профиле"
+  },
+  "logout": "Выйти из аккаунта",
+  "@logout": {
+    "description": "Кнопка Выйти из аккаунта в профиле"
+  },
+  "editProfile": "Редактировать профиль",
+  "@editProfile": {
+    "description": "Кнопка Редактировать профиль в профиле"
+  },
+  "settings": "Настройки",
+  "@settings": {
+    "description": "Кнопка Настройки в профиле"
+  },
+  "settingsTheme": "Тема",
+  "@settingsTheme": {
+    "description": "Выбор Темы в настройках"
+  },
+  "themeLight": "Светлая",
+  "@themeLight": {
+    "description": "Светлая тема"
+  },
+  "themeDark": "Темная",
+  "@themeDark": {
+    "description": "Темная тема"
+  },
+  "themeSystem": "Системная",
+  "@themeSystem": {
+    "description": "Системная тема"
+  },
+  "settingsLanguage": "Язык",
+  "@settingsLanguage": {
+    "description": "Выбор Языка в настройках"
+  },
+  "languageRu": "Русский",
+  "@languageRu": {
+    "description": "Константа русского языка"
+  },
+  "languageEn": "English",
+  "@languageEn": {
+    "description": "Константа английского языка"
+  },
+  "imdb": "IMDB ID",
+  "@imdb": {
+    "description": "IMDB ID константа"
+  }
 }

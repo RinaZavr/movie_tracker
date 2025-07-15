@@ -1,4 +1,155 @@
 {
   "@@locale": "en",
-  "hello": "Hello"
+  "popularMovies": "Popular",
+  "@popularMovies": {
+    "description": "Popular category on the home screen"
+  },
+  "nowPlayingMovies": "Now in theaters",
+  "@nowPlayingMovies": {
+    "description": "Now in theaters category on the home screen"
+  },
+  "upcomingMovies": "Coming soon",
+  "@upcomingMovies": {
+    "description": "Coming soon category on the home screen"
+  },
+  "movieRuntimeHours": "h.",
+  "@movieRuntimeHours": {
+    "description": "Abbreviation for hours in movie duration"
+  },
+  "movieRuntimeMinutes": "min.",
+  "@movieRuntimeMinutes": {
+    "description": "Abbreviation for minutes in movie duration"
+  },
+  "movieTrailer": "Trailer",
+  "@movieTrailer": {
+    "description": "Trailer button in the movie card"
+  },
+  "movieStatus": "Status",
+  "@movieStatus": {
+    "description": "Movie status in the movie card description table"
+  },
+  "movieReleaseDate": "Release date",
+  "@movieReleaseDate": {
+    "description": "Release date in the movie card description table"
+  },
+  "movieBudget": "Budget",
+  "@movieBudget": {
+    "description": "Movie budget in the movie card description table"
+  },
+  "movieRevenue": "Revenue",
+  "@movieRevenue": {
+    "description": "Movie revenue in the movie card description table"
+  },
+  "movieCompanies": "Production companies",
+  "@movieCompanies": {
+    "description": "Movie production companies in the movie card description table"
+  },
+  "movieCountries": "Countries",
+  "@movieCountries": {
+    "description": "Movie production countries in the movie card description table"
+  },
+  "goTo": "Go to",
+  "@goTo": {
+    "description": "Go to IMDB button in the movie card description table"
+  },
+  "movieGallery": "Gallery",
+  "@movieGallery": {
+    "description": "Gallery category in the movie card"
+  },
+  "movieReviews": "Reviews",
+  "@movieReviews": {
+    "description": "Reviews category in the movie card"
+  },
+  "movieRecommendations": "Recommendations",
+  "@movieRecommendations": {
+    "description": "Recommendations category in the movie card"
+  },
+  "searchInputHint": "What are you looking for?",
+  "@searchInputHint": {
+    "description": "Hint in the search field"
+  },
+  "searchFilters": "Filters",
+  "@searchFilters": {
+    "description": "Filters on the search screen"
+  },
+  "filterYear": "Year",
+  "@filterYear": {
+    "description": "Year filter on the filter screen"
+  },
+  "filterYearHint": "Enter the movie release year",
+  "@filterYearHint": {
+    "description": "Hint in the Year field on the filter screen"
+  },
+  "filterCountry": "Country",
+  "@filterCountry": {
+    "description": "Country filter on the filter screen"
+  },
+  "filterCountryHint": "Enter the movie production country",
+  "@filterCountryHint": {
+    "description": "Hint in the Country field on the filter screen"
+  },
+  "filterReset": "Reset filter",
+  "@filterReset": {
+    "description": "Reset filter button on the filter screen"
+  },
+  "filterApply": "Show results",
+  "@filterApply": {
+    "description": "Show results button on the filter screen"
+  },
+  "favorites": "To watch",
+  "@favorites": {
+    "description": "To watch category in the favorites"
+  },
+  "watchlist": "Watched",
+  "@watchlist": {
+    "description": "Watched category in the favorites"
+  },
+  "rated": "Rated",
+  "@rated": {
+    "description": "Rated category in the profile"
+  },
+  "logout": "Log out",
+  "@logout": {
+    "description": "Log out button in the profile"
+  },
+  "editProfile": "Edit profile",
+  "@editProfile": {
+    "description": "Edit profile button in the profile"
+  },
+  "settings": "Settings",
+  "@settings": {
+    "description": "Settings button in the profile"
+  },
+  "settingsTheme": "Theme",
+  "@settingsTheme": {
+    "description": "Theme selection in the settings"
+  },
+  "themeLight": "Light",
+  "@themeLight": {
+    "description": "Light theme"
+  },
+  "themeDark": "Dark",
+  "@themeDark": {
+    "description": "Dark theme"
+  },
+  "themeSystem": "System",
+  "@themeSystem": {
+    "description": "System theme"
+  },
+  "settingsLanguage": "Language",
+  "@settingsLanguage": {
+    "description": "Language selection in the settings"
+  },
+  "languageRu": "Русский",
+  "@languageRu": {
+    "description": "Russian language constant"
+  },
+  "languageEn": "English",
+  "@languageEn": {
+    "description": "English language constant"
+  },
+  "imdb": "IMDB ID",
+  "@imdb": {
+    "description": "IMDB ID constant"
+  }
 }
