@@ -69,10 +69,7 @@ class _MainWrapperState extends State<MainWrapper> {
                           boxShadow: [context.shadowExt.primaryShadow],
                         )
                       : null,
-                  child: Icon(
-                    item.icon,
-                    color: context.colorExt.secondaryColor,
-                  ),
+                  child: Icon(item.icon),
                 ),
               ),
             );

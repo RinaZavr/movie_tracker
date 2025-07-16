@@ -16,25 +16,28 @@ class MovieCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CachedNetworkImage(
-      imageUrl: imageUrl,
-      imageBuilder: (context, imageProvider) {
-        return Container(
-          padding: padding,
-          margin: margin,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(12),
-            boxShadow: [context.shadowExt.primaryShadow],
-          ),
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(12),
-            child: Image(image: imageProvider, fit: BoxFit.cover),
-          ),
-        );
-      },
-      errorWidget: (context, url, error) {
-        return const CircularProgressIndicator();
-      },
+    return InkWell(
+      onTap: () {},
+      child: CachedNetworkImage(
+        imageUrl: imageUrl,
+        imageBuilder: (context, imageProvider) {
+          return Container(
+            padding: padding,
+            margin: margin,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(12),
+              boxShadow: [context.shadowExt.primaryShadow],
+            ),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(12),
+              child: Image(image: imageProvider, fit: BoxFit.cover),
+            ),
+          );
+        },
+        errorWidget: (context, url, error) {
+          return const CircularProgressIndicator();
+        },
+      ),
     );
   }
 }

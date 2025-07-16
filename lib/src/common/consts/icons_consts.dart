@@ -11,4 +11,5 @@ abstract class AppIcons {
   static const IconData edit = CupertinoIcons.pencil;
   static const IconData trash = CupertinoIcons.trash;
   static const IconData done = CupertinoIcons.check_mark;
+  static const IconData arrow = CupertinoIcons.forward;
 }
