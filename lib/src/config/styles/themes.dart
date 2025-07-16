@@ -20,6 +20,7 @@ abstract class AppThemes {
     progressIndicatorTheme: const ProgressIndicatorThemeData(
       color: AppColors.antiFlashWhite,
     ),
+    iconTheme: const IconThemeData(color: AppColors.antiFlashWhite),
   );
 
   static ThemeData light(BuildContext context) => ThemeData(
@@ -35,5 +36,6 @@ abstract class AppThemes {
     progressIndicatorTheme: const ProgressIndicatorThemeData(
       color: AppColors.raisinBlack,
     ),
+    iconTheme: const IconThemeData(color: AppColors.raisinBlack),
   );
 }
