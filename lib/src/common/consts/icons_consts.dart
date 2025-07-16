@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 
-abstract class IconsConsts {
+abstract class AppIcons {
   static const IconData home = CupertinoIcons.home;
   static const IconData search = CupertinoIcons.search;
   static const IconData favorite = CupertinoIcons.heart;
