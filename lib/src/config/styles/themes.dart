@@ -17,6 +17,9 @@ abstract class AppThemes {
     ],
     scaffoldBackgroundColor: AppColors.chineseBlack,
     appBarTheme: const AppBarTheme(backgroundColor: AppColors.chineseBlack),
+    progressIndicatorTheme: const ProgressIndicatorThemeData(
+      color: AppColors.antiFlashWhite,
+    ),
   );
 
   static ThemeData light(BuildContext context) => ThemeData(
@@ -29,5 +32,8 @@ abstract class AppThemes {
     ],
     scaffoldBackgroundColor: AppColors.ghostWhite,
     appBarTheme: const AppBarTheme(backgroundColor: AppColors.ghostWhite),
+    progressIndicatorTheme: const ProgressIndicatorThemeData(
+      color: AppColors.raisinBlack,
+    ),
   );
 }
