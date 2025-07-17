@@ -8,6 +8,6 @@ abstract class AppRouter {
   static final router = GoRouter(
     debugLogDiagnostics: kDebugMode,
     routes: $appRoutes,
-    initialLocation: MoviesListRoute().location,
+    initialLocation: MoviesRoute().location,
   );
 }

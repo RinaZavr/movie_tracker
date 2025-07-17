@@ -4,14 +4,14 @@ import 'package:movie_tracker/src/common/extensions/context_extensions.dart';
 import 'package:movie_tracker/src/common/widgets/movie_card.dart';
 import 'package:movie_tracker/src/features/movies/root/view/widgets/movies_category_widget.dart';
 
-class MoviesListScreen extends StatefulWidget {
-  const MoviesListScreen({super.key});
+class MoviesScreen extends StatefulWidget {
+  const MoviesScreen({super.key});
 
   @override
-  State<MoviesListScreen> createState() => _MoviesListScreenState();
+  State<MoviesScreen> createState() => _MoviesScreenState();
 }
 
-class _MoviesListScreenState extends State<MoviesListScreen> {
+class _MoviesScreenState extends State<MoviesScreen> {
   final List<String> topRated = [
     'https://image.tmdb.org/t/p/original/vsjuHP9RQZJgYUvvSlO3mjJpXkq.jpg',
     'https://image.tmdb.org/t/p/original/vsjuHP9RQZJgYUvvSlO3mjJpXkq.jpg',

@@ -16,7 +16,7 @@ class MainWrapper extends StatefulWidget {
 
 class _MainWrapperState extends State<MainWrapper> {
   final List<MainWrapperModel> items = [
-    MainWrapperModel(icon: AppIcons.home, location: MoviesListRoute().location),
+    MainWrapperModel(icon: AppIcons.home, location: MoviesRoute().location),
     MainWrapperModel(icon: AppIcons.search, location: SearchRoute().location),
     MainWrapperModel(
       icon: AppIcons.favorite,
