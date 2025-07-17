@@ -2,18 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:movie_tracker/src/common/consts/icons_consts.dart';
 import 'package:movie_tracker/src/common/extensions/context_extensions.dart';
 import 'package:movie_tracker/src/common/widgets/movie_card.dart';
+import 'package:movie_tracker/src/config/router/routes.dart';
 
 class MoviesCategoryWidget extends StatelessWidget {
   const MoviesCategoryWidget({
     super.key,
     required this.title,
     required this.movies,
-    required this.onTap,
   });
 
   final String title;
   final List<String> movies;
-  final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -23,12 +22,14 @@ class MoviesCategoryWidget extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),
           child: InkWell(
-            onTap: onTap,
+            onTap: () {
+              MoviesListRoute(title: title, images: movies).push(context);
+            },
             child: Row(
               spacing: 8,
               children: [
                 Text(title, style: context.textExt.label),
-                const Icon(AppIcons.arrow),
+                const Icon(AppIcons.forward),
               ],
             ),
           ),

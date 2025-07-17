@@ -3,6 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:movie_tracker/src/config/router/routes_consts.dart';
 import 'package:movie_tracker/src/features/favourites/list/view/favourites_screen.dart';
 import 'package:movie_tracker/src/features/main/view/main_wrapper.dart';
+import 'package:movie_tracker/src/features/movies/list/view/movies_list_screen.dart';
 import 'package:movie_tracker/src/features/movies/root/view/movies_screen.dart';
 import 'package:movie_tracker/src/features/profile/list/view/profile_screen.dart';
 import 'package:movie_tracker/src/features/search/main/view/search_screen.dart';
@@ -30,7 +31,7 @@ class MoviesRoute extends GoRouteData with _$MoviesRoute {
   Page<void> buildPage(BuildContext context, GoRouterState state) {
     return CustomTransitionPage(
       key: state.pageKey,
-      child: const MoviesListScreen(),
+      child: const MoviesScreen(),
       transitionsBuilder: (_, __, ___, child) => child,
     );
   }
@@ -69,5 +70,18 @@ class ProfileRoute extends GoRouteData with _$ProfileRoute {
       child: const ProfileScreen(),
       transitionsBuilder: (_, __, ___, child) => child,
     );
+  }
+}
+
+@TypedGoRoute<MoviesListRoute>(path: AppRoutesConsts.moviesList)
+class MoviesListRoute extends GoRouteData with _$MoviesListRoute {
+  MoviesListRoute({required this.title, required this.images});
+
+  final String title;
+  final List<String> images;
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) {
+    return MoviesListScreen(title: title, images: images);
   }
 }

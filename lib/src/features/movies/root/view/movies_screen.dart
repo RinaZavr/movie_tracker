@@ -50,7 +50,6 @@ class _MoviesScreenState extends State<MoviesScreen> {
             child: MoviesCategoryWidget(
               title: context.l10n.popularMovies,
               movies: populars,
-              onTap: () {},
             ),
           ),
           SliverToBoxAdapter(
@@ -59,7 +58,6 @@ class _MoviesScreenState extends State<MoviesScreen> {
               child: MoviesCategoryWidget(
                 title: context.l10n.nowPlayingMovies,
                 movies: populars,
-                onTap: () {},
               ),
             ),
           ),
@@ -69,7 +67,6 @@ class _MoviesScreenState extends State<MoviesScreen> {
               child: MoviesCategoryWidget(
                 title: context.l10n.upcomingMovies,
                 movies: populars,
-                onTap: () {},
               ),
             ),
           ),

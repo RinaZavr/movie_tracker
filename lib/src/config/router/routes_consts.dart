@@ -5,4 +5,6 @@ abstract class AppRoutesConsts {
   static const String search = '/search';
   static const String favourites = '/favourites';
   static const String profile = '/profile';
+
+    static const String moviesList = '/movies/list';
 }
