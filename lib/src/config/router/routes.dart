@@ -3,7 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:movie_tracker/src/config/router/routes_consts.dart';
 import 'package:movie_tracker/src/features/favourites/list/view/favourites_screen.dart';
 import 'package:movie_tracker/src/features/main/view/main_wrapper.dart';
-import 'package:movie_tracker/src/features/movies/list/view/movies_list_screen.dart';
+import 'package:movie_tracker/src/features/movies/root/view/movies_list_screen.dart';
 import 'package:movie_tracker/src/features/profile/list/view/profile_screen.dart';
 import 'package:movie_tracker/src/features/search/main/view/search_screen.dart';
 

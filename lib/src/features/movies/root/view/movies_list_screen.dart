@@ -2,7 +2,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:movie_tracker/src/common/extensions/context_extensions.dart';
 import 'package:movie_tracker/src/common/widgets/movie_card.dart';
-import 'package:movie_tracker/src/features/movies/list/view/widgets/movies_category_widget.dart';
+import 'package:movie_tracker/src/features/movies/root/view/widgets/movies_category_widget.dart';
 
 class MoviesListScreen extends StatefulWidget {
   const MoviesListScreen({super.key});
