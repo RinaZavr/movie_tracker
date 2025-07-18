@@ -38,9 +38,33 @@ class _MoviesScreenState extends State<MoviesScreen> {
               ),
               items: topRated
                   .map(
-                    (path) => MovieCard(
-                      imageUrl: path,
-                      margin: const EdgeInsets.symmetric(horizontal: 8),
+                    (path) => Stack(
+                      alignment: Alignment.bottomCenter,
+                      children: [
+                        MovieCard(
+                          imageUrl: path,
+                          margin: const EdgeInsets.symmetric(horizontal: 8),
+                        ),
+                        Container(
+                          margin: const EdgeInsets.symmetric(
+                            horizontal: 16,
+                            vertical: 8,
+                          ),
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 8,
+                            vertical: 4,
+                          ),
+                          decoration: BoxDecoration(
+                            color: context.colorExt.cardColor,
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                          child: Text(
+                            'Пираты Карибского моря: Сундук мертвеца',
+                            style: context.textExt.title,
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                        ),
+                      ],
                     ),
                   )
                   .toList(),
