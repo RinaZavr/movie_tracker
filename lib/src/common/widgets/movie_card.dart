@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:movie_tracker/src/common/extensions/context_extensions.dart';
+import 'package:movie_tracker/src/common/widgets/mini_accent_item.dart';
 
 class MovieCard extends StatelessWidget {
   const MovieCard({
@@ -30,7 +31,22 @@ class MovieCard extends StatelessWidget {
             ),
             child: ClipRRect(
               borderRadius: BorderRadius.circular(12),
-              child: Image(image: imageProvider, fit: BoxFit.cover),
+              child: Stack(
+                children: [
+                  Image(image: imageProvider, fit: BoxFit.cover),
+                  Padding(
+                    padding: const EdgeInsets.all(4.0),
+                    child: MiniAccentItem(
+                      child: Text(
+                        '7.2',
+                        style: context.textExt.accentInfo.copyWith(
+                          color: context.colorExt.primaryColor,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
           );
         },
