@@ -8,7 +8,9 @@
         {
             "name": "movie_tracker",
             "request": "launch",
-            "type": "dart"
+            "type": "dart",
+            "flutterMode": "debug",
+            "program": "lib/main.dart"
         },
         {
             "name": "movie_tracker (profile mode)",
