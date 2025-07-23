@@ -35,7 +35,7 @@ class MovieCard extends StatelessWidget {
                 children: [
                   Image(image: imageProvider, fit: BoxFit.cover),
                   Padding(
-                    padding: const EdgeInsets.all(4.0),
+                    padding: const EdgeInsets.all(4),
                     child: MiniAccentItem(
                       child: Text(
                         '7.2',
