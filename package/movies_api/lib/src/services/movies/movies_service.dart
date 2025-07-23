@@ -13,26 +13,26 @@ abstract class MoviesService {
   Future<MoviesList> getTopRatedMovies();
 
   @GET('/movie/now_playing')
-  Future<MoviesList> getNowPlayingMovies(@Query('page') int page);
+  Future<MoviesList> getNowPlayingMovies({@Query('page') int page = 1});
 
   @GET('/movie/popular')
-  Future<MoviesList> getPopularMovies(@Query('page') int page);
+  Future<MoviesList> getPopularMovies({@Query('page') int page = 1});
 
   @GET('/movie/upcoming')
-  Future<MoviesList> getUpcomingMovies(@Query('page') int page);
+  Future<MoviesList> getUpcomingMovies({@Query('page') int page = 1});
 
   @GET('/movie/{movie_id}')
-  Future<MovieDetails> getMovieDetails(@Path('movie_id') int movieId);
+  Future<MovieDetails> getMovieDetails({@Path('movie_id') int movieId});
 
   @GET('/movie/{movie_id}/videos')
-  Future<MoviesList> getMovieVideos(@Path('movie_id') int movieId);
+  Future<MoviesList> getMovieVideos({@Path('movie_id') int movieId});
 
   @GET('/movie/{movie_id}/reviews')
-  Future<MoviesList> getMovieReviews(@Path('movie_id') int movieId);
+  Future<MoviesList> getMovieReviews({@Path('movie_id') int movieId});
 
   @GET('/movie/{movie_id}/images')
-  Future<MoviesList> getMovieImages(@Path('movie_id') int movieId);
+  Future<MoviesList> getMovieImages({@Path('movie_id') int movieId});
 
   @GET('/movie/{movie_id}/recommendations')
-  Future<MoviesList> getMovieRecommendations(@Path('movie_id') int movieId);
+  Future<MoviesList> getMovieRecommendations({@Path('movie_id') int movieId});
 }
