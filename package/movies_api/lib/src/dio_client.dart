@@ -7,16 +7,22 @@ class DioClient {
     required String baseUrl,
     String? myApiKey,
     String currentLanguage = 'ru-RU',
+    Interceptor? logger,
   }) {
-    _dio = Dio(
-      BaseOptions(
-        baseUrl: baseUrl,
-        validateStatus: (status) {
-          return status != null && status >= 200 && status < 300 ||
-              status == 304;
-        },
-      ),
-    )..interceptors.addAll([DioInterceptor(dioClient: this)]);
+    _dio =
+        Dio(
+            BaseOptions(
+              baseUrl: baseUrl,
+              validateStatus: (status) {
+                return status != null && status >= 200 && status < 300 ||
+                    status == 304;
+              },
+            ),
+          )
+          ..interceptors.addAll([
+            DioInterceptor(dioClient: this),
+            if (logger != null) logger,
+          ]);
 
     apiKey = myApiKey;
     language = currentLanguage;
