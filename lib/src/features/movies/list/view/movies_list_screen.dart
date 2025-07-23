@@ -32,7 +32,7 @@ class _MoviesListScreenState extends State<MoviesListScreen> {
           ),
           itemCount: widget.images.length,
           itemBuilder: (context, index) {
-            return MovieCard(imageUrl: widget.images[index]);
+            return MovieCard(imageUrl: widget.images[index], vote: '0.0');
           },
         ),
       ),

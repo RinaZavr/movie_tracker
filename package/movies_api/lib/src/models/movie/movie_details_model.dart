@@ -46,7 +46,7 @@ class MovieDetails {
   @JsonKey(name: 'title')
   final String title;
 
-  @JsonKey(name: 'vote_average')
+  @JsonKey(name: 'vote_average', fromJson: _paramToRoundFromJson)
   final double voteAverage;
 
   const MovieDetails({
@@ -74,4 +74,7 @@ class MovieDetails {
 
   static List<String> _paramsFromJson(List<Map<String, dynamic>> json) =>
       json.map((e) => e['name'] as String).toList();
+
+  static double _paramToRoundFromJson(double param) =>
+      double.parse(param.toStringAsFixed(1));
 }

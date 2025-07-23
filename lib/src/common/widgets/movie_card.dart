@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:movie_tracker/src/common/extensions/context_extensions.dart';
 import 'package:movie_tracker/src/common/widgets/mini_accent_item.dart';
 
@@ -7,11 +8,13 @@ class MovieCard extends StatelessWidget {
   const MovieCard({
     super.key,
     required this.imageUrl,
+    required this.vote,
     this.padding,
     this.margin,
   });
 
   final String imageUrl;
+  final String vote;
   final EdgeInsets? padding;
   final EdgeInsets? margin;
 
@@ -20,7 +23,7 @@ class MovieCard extends StatelessWidget {
     return InkWell(
       onTap: () {},
       child: CachedNetworkImage(
-        imageUrl: imageUrl,
+        imageUrl: dotenv.env['IMAGES_URL']! + imageUrl,
         imageBuilder: (context, imageProvider) {
           return Container(
             padding: padding,
@@ -38,7 +41,7 @@ class MovieCard extends StatelessWidget {
                     padding: const EdgeInsets.all(4),
                     child: MiniAccentItem(
                       child: Text(
-                        '7.2',
+                        vote,
                         style: context.textExt.accentInfo.copyWith(
                           color: context.colorExt.primaryColor,
                         ),
@@ -51,7 +54,7 @@ class MovieCard extends StatelessWidget {
           );
         },
         errorWidget: (context, url, error) {
-          return const CircularProgressIndicator();
+          return Center(child: const CircularProgressIndicator());
         },
       ),
     );

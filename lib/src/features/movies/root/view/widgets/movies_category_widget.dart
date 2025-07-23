@@ -3,6 +3,7 @@ import 'package:movie_tracker/src/common/consts/icons_consts.dart';
 import 'package:movie_tracker/src/common/extensions/context_extensions.dart';
 import 'package:movie_tracker/src/common/widgets/movie_card.dart';
 import 'package:movie_tracker/src/config/router/routes.dart';
+import 'package:movies_api/api_client.dart';
 
 class MoviesCategoryWidget extends StatelessWidget {
   const MoviesCategoryWidget({
@@ -12,7 +13,7 @@ class MoviesCategoryWidget extends StatelessWidget {
   });
 
   final String title;
-  final List<String> movies;
+  final List<Movie> movies;
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +24,10 @@ class MoviesCategoryWidget extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 16),
           child: InkWell(
             onTap: () {
-              MoviesListRoute(title: title, images: movies).push(context);
+              MoviesListRoute(
+                title: title,
+                images: movies.map((e) => e.posterPath).toList(),
+              ).push(context);
             },
             child: Row(
               spacing: 8,
@@ -42,7 +46,8 @@ class MoviesCategoryWidget extends StatelessWidget {
             scrollDirection: Axis.horizontal,
             itemBuilder: (context, index) {
               return MovieCard(
-                imageUrl: movies[index],
+                imageUrl: movies[index].posterPath,
+                vote: movies[index].voteAverage.toString(),
                 margin: const EdgeInsets.only(left: 16, top: 8, bottom: 8),
               );
             },

@@ -16,7 +16,7 @@ class Movie {
   @JsonKey(name: 'poster_path')
   final String posterPath;
 
-  @JsonKey(name: 'vote_average')
+  @JsonKey(name: 'vote_average', fromJson: _paramToRoundFromJson)
   final double voteAverage;
 
   Movie({
@@ -30,4 +30,7 @@ class Movie {
   factory Movie.fromJson(Map<String, dynamic> json) => _$MovieFromJson(json);
 
   Map<String, dynamic> toJson() => _$MovieToJson(this);
+
+  static double _paramToRoundFromJson(double param) =>
+      double.parse(param.toStringAsFixed(1));
 }
