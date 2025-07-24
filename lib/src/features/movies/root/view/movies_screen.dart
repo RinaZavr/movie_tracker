@@ -51,36 +51,41 @@ class _MoviesScreenState extends State<MoviesScreen> {
                       ),
                       items: state.topRated
                           .map(
-                            (movie) => Stack(
-                              alignment: Alignment.bottomCenter,
-                              children: [
-                                MovieCard(
-                                  imageUrl: movie.backdropPath,
-                                  vote: movie.voteAverage.toString(),
-                                  margin: const EdgeInsets.symmetric(
-                                    horizontal: 8,
+                            (movie) => Padding(
+                              padding: const EdgeInsets.symmetric(vertical: 16),
+                              child: Stack(
+                                alignment: Alignment.bottomCenter,
+                                children: [
+                                  MovieCard(
+                                    imageUrl: movie.backdropPath,
+                                    vote: movie.voteAverage.toString(),
+                                    margin: const EdgeInsets.symmetric(
+                                      horizontal: 8,
+                                    ),
                                   ),
-                                ),
-                                Container(
-                                  margin: const EdgeInsets.symmetric(
-                                    horizontal: 16,
-                                    vertical: 8,
+                                  Container(
+                                    margin: const EdgeInsets.symmetric(
+                                      horizontal: 16,
+                                      vertical: 8,
+                                    ),
+                                    padding: const EdgeInsets.symmetric(
+                                      horizontal: 8,
+                                      vertical: 4,
+                                    ),
+                                    decoration: BoxDecoration(
+                                      color: context.colorExt.cardColor,
+                                      borderRadius: BorderRadius.circular(12),
+                                    ),
+                                    child: Text(
+                                      movie.title,
+                                      style: context.textExt.title,
+                                      maxLines: 2,
+                                      textAlign: TextAlign.center,
+                                      overflow: TextOverflow.ellipsis,
+                                    ),
                                   ),
-                                  padding: const EdgeInsets.symmetric(
-                                    horizontal: 8,
-                                    vertical: 4,
-                                  ),
-                                  decoration: BoxDecoration(
-                                    color: context.colorExt.cardColor,
-                                    borderRadius: BorderRadius.circular(12),
-                                  ),
-                                  child: Text(
-                                    movie.title,
-                                    style: context.textExt.title,
-                                    overflow: TextOverflow.ellipsis,
-                                  ),
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
                           )
                           .toList(),

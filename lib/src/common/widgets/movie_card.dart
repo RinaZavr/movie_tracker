@@ -25,30 +25,36 @@ class MovieCard extends StatelessWidget {
       child: CachedNetworkImage(
         imageUrl: dotenv.env['IMAGES_URL']! + imageUrl,
         imageBuilder: (context, imageProvider) {
-          return Container(
-            padding: padding,
-            margin: margin,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(12),
-              boxShadow: [context.shadowExt.primaryShadow],
-            ),
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(12),
-              child: Stack(
-                children: [
-                  Image(image: imageProvider, fit: BoxFit.cover),
-                  Padding(
-                    padding: const EdgeInsets.all(4),
-                    child: MiniAccentItem(
-                      child: Text(
-                        vote,
-                        style: context.textExt.accentInfo.copyWith(
-                          color: context.colorExt.primaryColor,
+          return IntrinsicWidth(
+            child: Container(
+              padding: padding,
+              margin: margin,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(12),
+                boxShadow: [context.shadowExt.primaryShadow],
+              ),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(12),
+                child: Stack(
+                  fit: StackFit.expand,
+                  children: [
+                    Image(image: imageProvider, fit: BoxFit.cover),
+                    Align(
+                      alignment: Alignment.topLeft,
+                      child: Padding(
+                        padding: const EdgeInsets.all(4),
+                        child: MiniAccentItem(
+                          child: Text(
+                            vote,
+                            style: context.textExt.accentInfo.copyWith(
+                              color: context.colorExt.primaryColor,
+                            ),
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
           );
