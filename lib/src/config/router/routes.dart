@@ -5,6 +5,7 @@ import 'package:movie_tracker/src/features/favourites/list/view/favourites_scree
 import 'package:movie_tracker/src/features/main/view/main_wrapper.dart';
 import 'package:movie_tracker/src/features/movies/list/view/movies_list_screen.dart';
 import 'package:movie_tracker/src/features/movies/root/view/movies_screen.dart';
+import 'package:movie_tracker/src/features/movies/utils/utils.dart';
 import 'package:movie_tracker/src/features/profile/list/view/profile_screen.dart';
 import 'package:movie_tracker/src/features/search/main/view/search_screen.dart';
 
@@ -75,13 +76,12 @@ class ProfileRoute extends GoRouteData with _$ProfileRoute {
 
 @TypedGoRoute<MoviesListRoute>(path: AppRoutesConsts.moviesList)
 class MoviesListRoute extends GoRouteData with _$MoviesListRoute {
-  MoviesListRoute({required this.title, required this.images});
+  MoviesListRoute({required this.category});
 
-  final String title;
-  final List<String> images;
+  final MovieCategory category;
 
   @override
   Widget build(BuildContext context, GoRouterState state) {
-    return MoviesListScreen(title: title, images: images);
+    return MoviesListScreen(category: category);
   }
 }

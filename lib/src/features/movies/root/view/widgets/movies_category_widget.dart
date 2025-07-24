@@ -3,16 +3,17 @@ import 'package:movie_tracker/src/common/consts/icons_consts.dart';
 import 'package:movie_tracker/src/common/extensions/context_extensions.dart';
 import 'package:movie_tracker/src/common/widgets/movie_card.dart';
 import 'package:movie_tracker/src/config/router/routes.dart';
+import 'package:movie_tracker/src/features/movies/utils/utils.dart';
 import 'package:movies_api/api_client.dart';
 
 class MoviesCategoryWidget extends StatelessWidget {
   const MoviesCategoryWidget({
     super.key,
-    required this.title,
+    required this.category,
     required this.movies,
   });
 
-  final String title;
+  final MovieCategory category;
   final List<Movie> movies;
 
   @override
@@ -24,15 +25,12 @@ class MoviesCategoryWidget extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 16),
           child: InkWell(
             onTap: () {
-              MoviesListRoute(
-                title: title,
-                images: movies.map((e) => e.posterPath).toList(),
-              ).push(context);
+              MoviesListRoute(category: category).push(context);
             },
             child: Row(
               spacing: 8,
               children: [
-                Text(title, style: context.textExt.label),
+                Text(category.localized(context), style: context.textExt.label),
                 const Icon(AppIcons.forward),
               ],
             ),

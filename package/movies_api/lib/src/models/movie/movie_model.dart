@@ -11,7 +11,7 @@ class Movie {
   final String title;
 
   @JsonKey(name: 'backdrop_path')
-  final String backdropPath;
+  final String? backdropPath;
 
   @JsonKey(name: 'poster_path')
   final String posterPath;

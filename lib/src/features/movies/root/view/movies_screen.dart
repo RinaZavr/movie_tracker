@@ -5,6 +5,7 @@ import 'package:movie_tracker/src/common/extensions/context_extensions.dart';
 import 'package:movie_tracker/src/common/widgets/movie_card.dart';
 import 'package:movie_tracker/src/features/movies/root/cubit/movies_root_cubit.dart';
 import 'package:movie_tracker/src/features/movies/root/view/widgets/movies_category_widget.dart';
+import 'package:movie_tracker/src/features/movies/utils/utils.dart';
 
 class MoviesScreen extends StatefulWidget {
   const MoviesScreen({super.key});
@@ -57,7 +58,8 @@ class _MoviesScreenState extends State<MoviesScreen> {
                                 alignment: Alignment.bottomCenter,
                                 children: [
                                   MovieCard(
-                                    imageUrl: movie.backdropPath,
+                                    imageUrl:
+                                        movie.backdropPath ?? movie.posterPath,
                                     vote: movie.voteAverage.toString(),
                                     margin: const EdgeInsets.symmetric(
                                       horizontal: 8,
@@ -93,7 +95,7 @@ class _MoviesScreenState extends State<MoviesScreen> {
                   ),
                   SliverToBoxAdapter(
                     child: MoviesCategoryWidget(
-                      title: context.l10n.popularMovies,
+                      category: MovieCategory.popular,
                       movies: state.popular,
                     ),
                   ),
@@ -101,7 +103,7 @@ class _MoviesScreenState extends State<MoviesScreen> {
                     child: Padding(
                       padding: const EdgeInsets.only(top: 8),
                       child: MoviesCategoryWidget(
-                        title: context.l10n.nowPlayingMovies,
+                        category: MovieCategory.nowPlaying,
                         movies: state.nowPlaying,
                       ),
                     ),
@@ -110,7 +112,7 @@ class _MoviesScreenState extends State<MoviesScreen> {
                     child: Padding(
                       padding: const EdgeInsets.only(top: 8, bottom: 80),
                       child: MoviesCategoryWidget(
-                        title: context.l10n.upcomingMovies,
+                        category: MovieCategory.upcoming,
                         movies: state.upcoming,
                       ),
                     ),

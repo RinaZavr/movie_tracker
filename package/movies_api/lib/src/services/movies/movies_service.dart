@@ -10,7 +10,7 @@ abstract class MoviesService {
   factory MoviesService(Dio dio, {String baseUrl}) = _MoviesService;
 
   @GET('/movie/top_rated')
-  Future<MoviesList> getTopRatedMovies();
+  Future<MoviesList> getTopRatedMovies({@Query('page') int page = 1});
 
   @GET('/movie/now_playing')
   Future<MoviesList> getNowPlayingMovies({@Query('page') int page = 1});
