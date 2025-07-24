@@ -1,4 +1,4 @@
-part of 'movies_list_cubit.dart';
+part of 'movies_root_cubit.dart';
 
 @immutable
 sealed class MoviesRootState {}
@@ -7,8 +7,8 @@ final class MoviesRootInitial extends MoviesRootState {}
 
 final class MoviesRootLoading extends MoviesRootState {}
 
-final class MoviesListLoaded extends MoviesRootState {
-  MoviesListLoaded({
+final class MoviesRootLoaded extends MoviesRootState {
+  MoviesRootLoaded({
     required this.topRated,
     required this.popular,
     required this.nowPlaying,
@@ -21,8 +21,8 @@ final class MoviesListLoaded extends MoviesRootState {
   final List<Movie> upcoming;
 }
 
-final class MoviesListError extends MoviesRootState {
-  MoviesListError({required this.error});
+final class MoviesRootError extends MoviesRootState {
+  MoviesRootError({required this.error});
 
   final String error;
 }

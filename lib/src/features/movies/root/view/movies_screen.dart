@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_tracker/src/common/extensions/context_extensions.dart';
 import 'package:movie_tracker/src/common/widgets/movie_card.dart';
-import 'package:movie_tracker/src/features/movies/root/cubit/movies_list_cubit.dart';
+import 'package:movie_tracker/src/features/movies/root/cubit/movies_root_cubit.dart';
 import 'package:movie_tracker/src/features/movies/root/view/widgets/movies_category_widget.dart';
 
 class MoviesScreen extends StatefulWidget {
@@ -34,12 +34,12 @@ class _MoviesScreenState extends State<MoviesScreen> {
             if (state is MoviesRootLoading) {
               return const Center(child: CircularProgressIndicator());
             }
-            if (state is MoviesListError) {
+            if (state is MoviesRootError) {
               return Center(
                 child: Text(state.error, style: context.textExt.title),
               );
             }
-            if (state is MoviesListLoaded) {
+            if (state is MoviesRootLoaded) {
               return CustomScrollView(
                 slivers: [
                   SliverToBoxAdapter(

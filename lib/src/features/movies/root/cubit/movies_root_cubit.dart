@@ -5,7 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
 import 'package:movies_api/api_client.dart';
 
-part 'movies_list_state.dart';
+part 'movies_root_state.dart';
 
 class MoviesRootCubit extends Cubit<MoviesRootState> {
   MoviesRootCubit() : super(MoviesRootInitial());
@@ -14,7 +14,7 @@ class MoviesRootCubit extends Cubit<MoviesRootState> {
 
   Future<void> getMovies() async {
     emit(MoviesRootLoading());
-    
+
     try {
       final topRatedMovies = await service.getTopRatedMovies();
       final popularMovies = await service.getPopularMovies();
@@ -22,7 +22,7 @@ class MoviesRootCubit extends Cubit<MoviesRootState> {
       final upcomingMovies = await service.getUpcomingMovies();
 
       emit(
-        MoviesListLoaded(
+        MoviesRootLoaded(
           topRated: topRatedMovies.results,
           popular: popularMovies.results,
           nowPlaying: nowPlayingMovies.results,
@@ -31,7 +31,7 @@ class MoviesRootCubit extends Cubit<MoviesRootState> {
       );
     } catch (e) {
       log(e.toString(), name: 'MoviesListCubit');
-      emit(MoviesListError(error: 'Не удалось загрузить фильмы'));
+      emit(MoviesRootError(error: 'Не удалось загрузить фильмы'));
     }
   }
 }
