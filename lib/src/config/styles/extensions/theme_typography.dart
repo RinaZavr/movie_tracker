@@ -15,24 +15,24 @@ class ThemeTypography extends ThemeExtension<ThemeTypography> {
   ThemeTypography.dark(
     BuildContext context, [
     Color color = AppColors.antiFlashWhite,
-  ]) : label = AppTypography.montserratBold20(context).copyWith(color: color),
-       title = AppTypography.montserratSemiBold18(
+  ]) : label = AppTypography.montserratBold22(context).copyWith(color: color),
+       title = AppTypography.montserratSemiBold20(
          context,
        ).copyWith(color: color),
-       base = AppTypography.nunitoRegular16(context).copyWith(color: color),
-       accentInfo = AppTypography.nunitoBold12(context).copyWith(color: color),
-       info = AppTypography.nunitoLight12(context).copyWith(color: color);
+       base = AppTypography.nunitoRegular18(context).copyWith(color: color),
+       accentInfo = AppTypography.nunitoBold14(context).copyWith(color: color),
+       info = AppTypography.nunitoRegular14(context).copyWith(color: color);
 
   ThemeTypography.light(
     BuildContext context, [
     Color color = AppColors.raisinBlack,
-  ]) : label = AppTypography.montserratBold20(context).copyWith(color: color),
-       title = AppTypography.montserratSemiBold18(
+  ]) : label = AppTypography.montserratBold22(context).copyWith(color: color),
+       title = AppTypography.montserratSemiBold20(
          context,
        ).copyWith(color: color),
-       base = AppTypography.nunitoRegular16(context).copyWith(color: color),
-       accentInfo = AppTypography.nunitoBold12(context).copyWith(color: color),
-       info = AppTypography.nunitoLight12(context).copyWith(color: color);
+       base = AppTypography.nunitoRegular18(context).copyWith(color: color),
+       accentInfo = AppTypography.nunitoBold14(context).copyWith(color: color),
+       info = AppTypography.nunitoRegular14(context).copyWith(color: color);
 
   final TextStyle label;
   final TextStyle title;

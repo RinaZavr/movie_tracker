@@ -13,4 +13,5 @@ abstract class AppIcons {
   static const IconData done = CupertinoIcons.check_mark;
   static const IconData forward = CupertinoIcons.forward;
   static const IconData back = CupertinoIcons.back;
+  static const IconData photo = CupertinoIcons.photo;
 }

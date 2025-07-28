@@ -36,9 +36,9 @@ abstract class AppTypography {
     fontSize: getAdaptiveFontSize(context, 14),
   );
 
-  static TextStyle nunitoLight14(BuildContext context) => TextStyle(
+  static TextStyle nunitoRegular14(BuildContext context) => TextStyle(
     fontFamily: fontFamilyBase,
-    fontWeight: FontWeight.w300,
+    fontWeight: FontWeight.w400,
     fontSize: getAdaptiveFontSize(context, 14),
   );
 }

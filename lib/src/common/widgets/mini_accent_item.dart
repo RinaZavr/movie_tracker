@@ -2,10 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:movie_tracker/src/common/extensions/context_extensions.dart';
 
 class MiniAccentItem extends StatefulWidget {
-  const MiniAccentItem({super.key, required this.child, this.onTap});
+  const MiniAccentItem({
+    super.key,
+    required this.child,
+    this.onTap,
+    this.padding,
+  });
 
   final Widget child;
   final VoidCallback? onTap;
+  final EdgeInsetsGeometry? padding;
 
   @override
   State<MiniAccentItem> createState() => _MiniAccentItemState();
@@ -15,16 +21,16 @@ class _MiniAccentItemState extends State<MiniAccentItem> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: kToolbarHeight / 1.3,
+      // width: kToolbarHeight / 1.3,
       height: kToolbarHeight / 1.8,
       child: IconButton(
-        padding: EdgeInsets.zero,
+        padding: widget.padding ?? EdgeInsets.symmetric(horizontal: 12),
         style: ButtonStyle(
           backgroundColor: WidgetStateProperty.all(
             context.colorExt.accentColor,
           ),
           shape: WidgetStateProperty.all(
-            RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+            RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
           ),
           foregroundColor: WidgetStateProperty.all(
             context.colorExt.primaryColor,

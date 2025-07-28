@@ -1,12 +1,10 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
-import 'package:go_router/go_router.dart';
-import 'package:movie_tracker/src/common/consts/icons_consts.dart';
 import 'package:movie_tracker/src/common/extensions/context_extensions.dart';
-import 'package:movie_tracker/src/common/widgets/mini_accent_item.dart';
+import 'package:movie_tracker/src/common/widgets/custom_app_bar.dart';
 import 'package:movie_tracker/src/features/movies/movie/details/cubit/movie_details_cubit.dart';
+import 'package:movie_tracker/src/features/movies/movie/details/view/widgets/movie_details_app_bar.dart';
+import 'package:movie_tracker/src/features/movies/movie/details/view/widgets/movie_details_body.dart';
 
 class MovieDetailsScreen extends StatefulWidget {
   const MovieDetailsScreen({super.key, required this.id});
@@ -31,69 +29,42 @@ class _MovieDetailsScreenState extends State<MovieDetailsScreen> {
   Widget build(BuildContext context) {
     return BlocProvider.value(
       value: _cubit,
-      child: Scaffold(
-        extendBodyBehindAppBar: true,
-        appBar: AppBar(
-          backgroundColor: Colors.transparent,
-          leading: Padding(
-            padding: const EdgeInsets.only(left: 16),
-            child: Align(
-              child: MiniAccentItem(
-                child: const Icon(AppIcons.back),
-                onTap: () => context.pop(),
-              ),
-            ),
-          ),
-          actions: [
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 8),
-              child: MiniAccentItem(
-                child: Text(
-                  '0.0',
-                  style: context.textExt.accentInfo.copyWith(
-                    color: context.colorExt.primaryColor,
-                  ),
-                ),
-                onTap: () {},
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(right: 16),
-              child: MiniAccentItem(
-                child: const Icon(AppIcons.favorite),
-                onTap: () {},
-              ),
-            ),
-          ],
-        ),
-        body: CustomScrollView(
-          slivers: [
-            SliverToBoxAdapter(
-              child: CachedNetworkImage(
-                imageUrl:
-                    "${dotenv.env['IMAGES_URL']!}/hZkgoQYus5vegHoetLkCJzb17zJ.jpg",
-                imageBuilder: (context, imageProvider) {
-                  return IntrinsicWidth(
-                    child: DecoratedBox(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(12),
-                        boxShadow: [context.shadowExt.primaryShadow],
-                      ),
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(12),
-                        child: Image(image: imageProvider, fit: BoxFit.cover),
-                      ),
-                    ),
-                  );
-                },
-                errorWidget: (context, url, error) {
-                  return Center(child: const CircularProgressIndicator());
-                },
-              ),
-            ),
-          ],
-        ),
+      child: BlocBuilder<MovieDetailsCubit, MovieDetailsState>(
+        builder: (context, state) {
+          return Scaffold(
+            extendBodyBehindAppBar: true,
+            appBar: _buildAppBar(state),
+            body: _buildBody(state),
+          );
+        },
       ),
     );
+  }
+
+  PreferredSizeWidget? _buildAppBar(MovieDetailsState state) {
+    if (state is MovieDetailsLoaded) {
+      return MovieDetailsAppBar(
+        id: state.movieDetails.id,
+        vote: state.movieDetails.voteAverage.toString(),
+      );
+    }
+    return CustomAppBar();
+  }
+
+  Widget _buildBody(MovieDetailsState state) {
+    if (state is MovieDetailsLoading) {
+      return Center(child: CircularProgressIndicator());
+    } else if (state is MovieDetailsError) {
+      return Center(child: Text(state.error, style: context.textExt.title));
+    } else if (state is MovieDetailsLoaded) {
+      return MovieDetailsBody(
+        movieDetails: state.movieDetails,
+        trailer: state.trailer,
+        review: state.review,
+        images: state.images,
+        recommendations: state.recommendations,
+      );
+    }
+    return Container();
   }
 }

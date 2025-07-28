@@ -41,7 +41,7 @@ class MovieDetailsCubit extends Cubit<MovieDetailsState> {
       );
     } catch (e) {
       log(e.toString(), name: 'MovieDetailsCubit');
-      emit(MovieDetailsError(error: e.toString()));
+      emit(MovieDetailsError(error: 'Не удалось загрузить фильм'));
     }
   }
 }

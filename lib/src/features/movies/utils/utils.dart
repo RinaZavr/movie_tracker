@@ -25,3 +25,25 @@ enum MovieCategory {
     }
   }
 }
+
+String capitalize(String input) {
+  if (input.isEmpty) {
+    return input;
+  }
+  return input[0].toUpperCase() + input.substring(1);
+}
+
+String formatDuration(int totalMinutes) {
+  final hours = totalMinutes ~/ 60;
+  final minutes = totalMinutes % 60;
+
+  final hoursPart = hours > 0 ? '$hours ч.' : '';
+  final minutesPart = minutes > 0 ? '$minutes мин.' : '';
+
+  var time = '';
+
+  if (hoursPart.isNotEmpty && minutesPart.isNotEmpty) {
+    time = '$hoursPart $minutesPart';
+  }
+  return time;
+}

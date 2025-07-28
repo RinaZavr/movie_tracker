@@ -65,6 +65,7 @@ class _MoviesScreenState extends State<MoviesScreen> {
                                     margin: const EdgeInsets.symmetric(
                                       horizontal: 8,
                                     ),
+                                    aspectRatio: 16 / 9,
                                   ),
                                   Container(
                                     margin: const EdgeInsets.symmetric(
