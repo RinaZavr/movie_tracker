@@ -6,5 +6,6 @@ abstract class AppRoutesConsts {
   static const String favourites = '/favourites';
   static const String profile = '/profile';
 
-    static const String moviesList = '/movies/list';
+  static const String moviesList = '/movies/list';
+  static const String movieDetails = '/movies/movie/details';
 }

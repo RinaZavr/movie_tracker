@@ -3,16 +3,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:movie_tracker/src/common/extensions/context_extensions.dart';
 import 'package:movie_tracker/src/common/widgets/mini_accent_item.dart';
+import 'package:movie_tracker/src/config/router/routes.dart';
 
 class MovieCard extends StatelessWidget {
   const MovieCard({
     super.key,
+    required this.movieId,
     required this.imageUrl,
     required this.vote,
     this.padding,
     this.margin,
   });
 
+  final int movieId;
   final String imageUrl;
   final String vote;
   final EdgeInsets? padding;
@@ -21,7 +24,9 @@ class MovieCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {},
+      onTap: () {
+        MovieDetailsRoute(id: movieId).push(context);
+      },
       child: CachedNetworkImage(
         imageUrl: dotenv.env['IMAGES_URL']! + imageUrl,
         imageBuilder: (context, imageProvider) {

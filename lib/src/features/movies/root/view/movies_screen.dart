@@ -58,6 +58,7 @@ class _MoviesScreenState extends State<MoviesScreen> {
                                 alignment: Alignment.bottomCenter,
                                 children: [
                                   MovieCard(
+                                    movieId: movie.id,
                                     imageUrl:
                                         movie.backdropPath ?? movie.posterPath,
                                     vote: movie.voteAverage.toString(),

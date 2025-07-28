@@ -44,6 +44,7 @@ class MoviesCategoryWidget extends StatelessWidget {
             scrollDirection: Axis.horizontal,
             itemBuilder: (context, index) {
               return MovieCard(
+                movieId: movies[index].id,
                 imageUrl: movies[index].posterPath,
                 vote: movies[index].voteAverage.toString(),
                 margin: const EdgeInsets.only(left: 16, top: 8, bottom: 8),

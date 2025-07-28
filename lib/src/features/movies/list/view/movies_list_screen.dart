@@ -62,8 +62,9 @@ class _MoviesListScreenState extends State<MoviesListScreen> {
                     itemCount: state.movies.length,
                     itemBuilder: (context, index) {
                       return MovieCard(
+                        movieId: state.movies[index].id,
                         imageUrl: state.movies[index].posterPath,
-                        vote: '0.0',
+                        vote: state.movies[index].voteAverage.toString(),
                       );
                     },
                   ),

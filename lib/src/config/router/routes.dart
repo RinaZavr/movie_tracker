@@ -4,6 +4,7 @@ import 'package:movie_tracker/src/config/router/routes_consts.dart';
 import 'package:movie_tracker/src/features/favourites/list/view/favourites_screen.dart';
 import 'package:movie_tracker/src/features/main/view/main_wrapper.dart';
 import 'package:movie_tracker/src/features/movies/list/view/movies_list_screen.dart';
+import 'package:movie_tracker/src/features/movies/movie/details/view/movie_details_screen.dart';
 import 'package:movie_tracker/src/features/movies/root/view/movies_screen.dart';
 import 'package:movie_tracker/src/features/movies/utils/utils.dart';
 import 'package:movie_tracker/src/features/profile/list/view/profile_screen.dart';
@@ -83,5 +84,17 @@ class MoviesListRoute extends GoRouteData with _$MoviesListRoute {
   @override
   Widget build(BuildContext context, GoRouterState state) {
     return MoviesListScreen(category: category);
+  }
+}
+
+@TypedGoRoute<MovieDetailsRoute>(path: AppRoutesConsts.movieDetails)
+class MovieDetailsRoute extends GoRouteData with _$MovieDetailsRoute {
+  MovieDetailsRoute({required this.id});
+
+  final int id;
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) {
+    return MovieDetailsScreen(id: id);
   }
 }
