@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:go_router/go_router.dart';
 import 'package:movie_tracker/src/common/extensions/context_extensions.dart';
@@ -53,20 +54,36 @@ class _App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
-      debugShowCheckedModeBanner: false,
-      routerConfig: router,
-      darkTheme: AppThemes.dark(context),
-      theme: AppThemes.light(context),
-      themeMode: context.theme.themeMode,
-      locale: context.localization.locale,
-      localizationsDelegates: const [
-        ...AppLocalizations.localizationsDelegates,
-        GlobalMaterialLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-        GlobalCupertinoLocalizations.delegate,
-      ],
-      supportedLocales: AppLocalizations.supportedLocales,
+    final brightness = context.theme.themeMode == ThemeMode.dark
+        ? Brightness.light
+        : Brightness.dark;
+    final color = context.theme.themeMode == ThemeMode.dark
+        ? Colors.black
+        : Colors.white;
+    return AnnotatedRegion<SystemUiOverlayStyle>(
+      value: SystemUiOverlayStyle(
+        statusBarColor: color,
+        statusBarIconBrightness: brightness,
+        systemNavigationBarColor: color,
+        systemNavigationBarIconBrightness: brightness,
+      ),
+      child: SafeArea(
+        child: MaterialApp.router(
+          debugShowCheckedModeBanner: false,
+          routerConfig: router,
+          darkTheme: AppThemes.dark(context),
+          theme: AppThemes.light(context),
+          themeMode: context.theme.themeMode,
+          locale: context.localization.locale,
+          localizationsDelegates: const [
+            ...AppLocalizations.localizationsDelegates,
+            GlobalMaterialLocalizations.delegate,
+            GlobalWidgetsLocalizations.delegate,
+            GlobalCupertinoLocalizations.delegate,
+          ],
+          supportedLocales: AppLocalizations.supportedLocales,
+        ),
+      ),
     );
   }
 }
