@@ -1,4 +1,7 @@
 import 'package:dio/dio.dart';
+import 'package:movies_api/src/models/movie/details/movie_images_model.dart';
+import 'package:movies_api/src/models/movie/details/movie_reviews_model.dart';
+import 'package:movies_api/src/models/movie/details/movie_trailers_model.dart';
 import 'package:movies_api/src/models/movie/movie_details_model.dart';
 import 'package:movies_api/src/models/movie/movies_list_model.dart';
 import 'package:retrofit/retrofit.dart';
@@ -27,13 +30,22 @@ abstract class MoviesService {
   });
 
   @GET('/movie/{movie_id}/videos')
-  Future<MoviesList> getMovieVideos({@Path('movie_id') required int movieId});
+  Future<MovieTrailersResponse> getMovieVideos({
+    @Path('movie_id') required int movieId,
+    @Query('language') String? language,
+  });
 
   @GET('/movie/{movie_id}/reviews')
-  Future<MoviesList> getMovieReviews({@Path('movie_id') required int movieId});
+  Future<MovieReviewsResponse> getMovieReviews({
+    @Path('movie_id') required int movieId,
+    @Query('language') String? language,
+  });
 
   @GET('/movie/{movie_id}/images')
-  Future<MoviesList> getMovieImages({@Path('movie_id') required int movieId});
+  Future<MovieImages> getMovieImages({
+    @Path('movie_id') required int movieId,
+    @Query('language') String? language,
+  });
 
   @GET('/movie/{movie_id}/recommendations')
   Future<MoviesList> getMovieRecommendations({

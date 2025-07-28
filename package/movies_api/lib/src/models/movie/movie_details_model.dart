@@ -72,8 +72,8 @@ class MovieDetails {
 
   Map<String, dynamic> toJson() => _$MovieDetailsToJson(this);
 
-  static List<String> _paramsFromJson(List<Map<String, dynamic>> json) =>
-      json.map((e) => e['name'] as String).toList();
+  static List<String> _paramsFromJson(List<dynamic> json) =>
+      json.map((e) => (e as Map<String, dynamic>)['name'] as String).toList();
 
   static double _paramToRoundFromJson(double param) =>
       double.parse(param.toStringAsFixed(1));
