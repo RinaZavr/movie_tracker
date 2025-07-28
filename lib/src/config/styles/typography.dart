@@ -12,31 +12,31 @@ abstract class AppTypography {
     return baseSize * (screenWidth / 411);
   }
 
-  static TextStyle montserratBold20(BuildContext context) => TextStyle(
+  static TextStyle montserratBold22(BuildContext context) => TextStyle(
     fontFamily: fontFamilyTitles,
     fontWeight: FontWeight.w700,
     fontSize: getAdaptiveFontSize(context, 22),
   );
 
-  static TextStyle montserratSemiBold18(BuildContext context) => TextStyle(
+  static TextStyle montserratSemiBold20(BuildContext context) => TextStyle(
     fontFamily: fontFamilyTitles,
     fontWeight: FontWeight.w600,
     fontSize: getAdaptiveFontSize(context, 20),
   );
 
-  static TextStyle nunitoRegular16(BuildContext context) => TextStyle(
+  static TextStyle nunitoRegular18(BuildContext context) => TextStyle(
     fontFamily: fontFamilyBase,
     fontWeight: FontWeight.w400,
     fontSize: getAdaptiveFontSize(context, 18),
   );
 
-  static TextStyle nunitoBold12(BuildContext context) => TextStyle(
+  static TextStyle nunitoBold14(BuildContext context) => TextStyle(
     fontFamily: fontFamilyBase,
     fontWeight: FontWeight.w700,
     fontSize: getAdaptiveFontSize(context, 14),
   );
 
-  static TextStyle nunitoLight12(BuildContext context) => TextStyle(
+  static TextStyle nunitoLight14(BuildContext context) => TextStyle(
     fontFamily: fontFamilyBase,
     fontWeight: FontWeight.w300,
     fontSize: getAdaptiveFontSize(context, 14),
