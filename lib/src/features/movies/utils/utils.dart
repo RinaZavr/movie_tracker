@@ -47,3 +47,34 @@ String formatDuration(int totalMinutes) {
   }
   return time;
 }
+
+(String first, String rest) splitFirstSentence(String text) {
+  final regex = RegExp(r'([.!?…]+["»”’]?\s+)');
+  final match = regex.firstMatch(text);
+
+  if (match != null) {
+    final endIndex = match.end;
+    final first = text.substring(0, endIndex).trim();
+    final rest = text.substring(endIndex).trim();
+    return (first, rest);
+  } else {
+    // Только одно предложение
+    return (text.trim(), '');
+  }
+}
+
+String formatCurrency(int value) {
+  final number = value.toString();
+  final buffer = StringBuffer();
+  var count = 0;
+
+  for (var i = number.length - 1; i >= 0; i--) {
+    buffer.write(number[i]);
+    count++;
+    if (count % 3 == 0 && i != 0) {
+      buffer.write('.');
+    }
+  }
+
+  return '\$${buffer.toString().split('').reversed.join()}';
+}

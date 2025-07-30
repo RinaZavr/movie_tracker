@@ -2,10 +2,12 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_tracker/src/common/extensions/context_extensions.dart';
+import 'package:movie_tracker/src/common/widgets/category_widget.dart';
 import 'package:movie_tracker/src/common/widgets/movie_card.dart';
+import 'package:movie_tracker/src/config/router/routes.dart';
 import 'package:movie_tracker/src/features/movies/root/cubit/movies_root_cubit.dart';
-import 'package:movie_tracker/src/features/movies/root/view/widgets/movies_category_widget.dart';
 import 'package:movie_tracker/src/features/movies/utils/utils.dart';
+import 'package:movies_api/api_client.dart';
 
 class MoviesScreen extends StatefulWidget {
   const MoviesScreen({super.key});
@@ -96,26 +98,35 @@ class _MoviesScreenState extends State<MoviesScreen> {
                     ),
                   ),
                   SliverToBoxAdapter(
-                    child: MoviesCategoryWidget(
-                      category: MovieCategory.popular,
-                      movies: state.popular,
+                    child: CategoryWidget(
+                      title: MovieCategory.popular.localized(context),
+                      onTap: () => MoviesListRoute(
+                        category: MovieCategory.popular,
+                      ).push(context),
+                      child: _getCategoryChild(state.popular),
                     ),
                   ),
                   SliverToBoxAdapter(
                     child: Padding(
                       padding: const EdgeInsets.only(top: 8),
-                      child: MoviesCategoryWidget(
-                        category: MovieCategory.nowPlaying,
-                        movies: state.nowPlaying,
+                      child: CategoryWidget(
+                        title: MovieCategory.nowPlaying.localized(context),
+                        onTap: () => MoviesListRoute(
+                          category: MovieCategory.popular,
+                        ).push(context),
+                        child: _getCategoryChild(state.nowPlaying),
                       ),
                     ),
                   ),
                   SliverToBoxAdapter(
                     child: Padding(
                       padding: const EdgeInsets.only(top: 8, bottom: 80),
-                      child: MoviesCategoryWidget(
-                        category: MovieCategory.upcoming,
-                        movies: state.upcoming,
+                      child: CategoryWidget(
+                        title: MovieCategory.upcoming.localized(context),
+                        onTap: () => MoviesListRoute(
+                          category: MovieCategory.popular,
+                        ).push(context),
+                        child: _getCategoryChild(state.upcoming),
                       ),
                     ),
                   ),
@@ -128,4 +139,17 @@ class _MoviesScreenState extends State<MoviesScreen> {
       ),
     );
   }
+
+  Widget _getCategoryChild(List<Movie> movies) => ListView.builder(
+    scrollDirection: Axis.horizontal,
+    itemBuilder: (context, index) {
+      return MovieCard(
+        movieId: movies[index].id,
+        imageUrl: movies[index].posterPath,
+        vote: movies[index].voteAverage.toString(),
+        margin: const EdgeInsets.only(left: 16, top: 8, bottom: 8),
+      );
+    },
+    itemCount: movies.length,
+  );
 }
