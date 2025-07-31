@@ -151,5 +151,9 @@
   "imdb": "IMDB ID",
   "@imdb": {
     "description": "IMDB ID константа"
+  },
+  "noNameUser": "Без имени",
+  "@noNameUser": {
+    "description": "Заглушка, когда у пользователя нет имени"
   }
 }

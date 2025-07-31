@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart' as intl;
 import 'package:movie_tracker/src/common/extensions/context_extensions.dart';
 
 enum MovieCategory {
@@ -77,4 +78,30 @@ String formatCurrency(int value) {
   }
 
   return '\$${buffer.toString().split('').reversed.join()}';
+}
+
+String formatDate(String date, BuildContext context) {
+  return intl.DateFormat(
+    'd MMMM, y',
+    context.localization.locale.languageCode,
+  ).format(DateTime.parse(date));
+}
+
+double calculateTextHeight({
+  required String text,
+  required TextStyle style,
+  required double maxWidth,
+  int maxLines = 1000,
+  TextAlign textAlign = TextAlign.start,
+}) {
+  final textSpan = TextSpan(text: text, style: style);
+
+  final textPainter = TextPainter(
+    text: textSpan,
+    maxLines: maxLines,
+    textAlign: textAlign,
+    textDirection: TextDirection.ltr,
+  )..layout(maxWidth: maxWidth);
+
+  return textPainter.size.height;
 }

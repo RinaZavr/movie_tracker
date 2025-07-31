@@ -151,5 +151,9 @@
   "imdb": "IMDB ID",
   "@imdb": {
     "description": "IMDB ID constant"
+  },
+  "noNameUser": "No name",
+  "@noNameUser": {
+    "description": "Placeholder when user has no name"
   }
 }

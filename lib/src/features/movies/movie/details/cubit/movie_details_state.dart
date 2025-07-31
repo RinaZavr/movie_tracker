@@ -20,7 +20,7 @@ final class MovieDetailsLoaded extends MovieDetailsState {
   final MovieTrailer? trailer;
   final MovieReview? review;
   final MovieImages images;
-  final MoviesList recommendations;
+  final List<Movie> recommendations;
 }
 
 final class MovieDetailsError extends MovieDetailsState {

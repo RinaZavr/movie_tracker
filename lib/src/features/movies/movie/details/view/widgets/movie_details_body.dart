@@ -5,6 +5,8 @@ import 'package:movie_tracker/src/features/movies/movie/details/view/widgets/mov
 import 'package:movie_tracker/src/features/movies/movie/details/view/widgets/movie_header_widget.dart';
 import 'package:movie_tracker/src/features/movies/movie/details/view/widgets/movie_info_widget.dart';
 import 'package:movie_tracker/src/features/movies/movie/details/view/widgets/movie_overview_widget.dart';
+import 'package:movie_tracker/src/features/movies/movie/details/view/widgets/movie_recomendations_widget.dart';
+import 'package:movie_tracker/src/features/movies/movie/details/view/widgets/movie_reviews_widget.dart';
 import 'package:movie_tracker/src/features/movies/utils/utils.dart';
 import 'package:movies_api/api_client.dart';
 
@@ -22,7 +24,7 @@ class MovieDetailsBody extends StatefulWidget {
   final MovieTrailer? trailer;
   final MovieReview? review;
   final MovieImages images;
-  final MoviesList recommendations;
+  final List<Movie> recommendations;
 
   @override
   State<MovieDetailsBody> createState() => _MovieDetailsBodyState();
@@ -86,7 +88,24 @@ class _MovieDetailsBodyState extends State<MovieDetailsBody> {
           ),
         ),
         SliverToBoxAdapter(
-          child: MovieGalleryWidget(images: widget.images.backdrops),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 8),
+            child: MovieGalleryWidget(images: widget.images.backdrops),
+          ),
+        ),
+        SliverToBoxAdapter(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 8),
+            child: MovieReviewWidget(review: widget.review),
+          ),
+        ),
+        SliverToBoxAdapter(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 8),
+            child: MovieRecommendationsWidget(
+              recomendations: widget.recommendations,
+            ),
+          ),
         ),
       ],
     );

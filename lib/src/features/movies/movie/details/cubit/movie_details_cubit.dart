@@ -36,7 +36,7 @@ class MovieDetailsCubit extends Cubit<MovieDetailsState> {
               trailers.results.firstOrNull,
           review: reviews.results.firstOrNull,
           images: images,
-          recommendations: recommendations,
+          recommendations: recommendations.results,
         ),
       );
     } catch (e) {

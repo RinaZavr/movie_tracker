@@ -36,10 +36,15 @@ class User {
 
   String? getAvatar() {
     if (avatar != null) {
-      return avatar;
+      return 'https://secure.gravatar.com/avatar/$avatar';
     }
     if (avatarData != null) {
-      return avatarData!.tmdb ?? avatarData!.gravatar;
+      if (avatarData!.tmdb != null) {
+        return 'https://image.tmdb.org/t/p/original/${avatarData!.tmdb}';
+      }
+      if (avatarData!.gravatar != null) {
+        return 'https://www.gravatar.com/avatar/${avatarData!.gravatar}';
+      }
     }
     return null;
   }
@@ -53,8 +58,8 @@ class AvatarData {
 
   factory AvatarData.fromJson(Map<String, Map<String, dynamic>> json) =>
       AvatarData(
-        tmdb: json['tmdb']?['hash'],
-        gravatar: json['gravatar']?['avatar_path'],
+        tmdb: json['gravatar']?['hash'],
+        gravatar: json['tmdb']?['avatar_path'],
       );
 
   Map<String, dynamic> toJson() => {};

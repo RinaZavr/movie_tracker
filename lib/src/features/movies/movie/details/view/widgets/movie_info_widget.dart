@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 import 'package:movie_tracker/src/common/extensions/context_extensions.dart';
 import 'package:movie_tracker/src/features/movies/utils/utils.dart';
 import 'package:movies_api/api_client.dart';
@@ -23,10 +22,7 @@ class MovieInfoWidget extends StatelessWidget {
 
     final descriptionValues = [
       details.status,
-      DateFormat(
-        'd MMMM, y',
-        context.localization.locale.languageCode,
-      ).format(DateTime.parse(details.releaseDate)),
+      formatDate(details.releaseDate, context),
       formatCurrency(details.budget),
       formatCurrency(details.revenue),
       details.productionCompanies.join(', '),

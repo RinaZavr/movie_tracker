@@ -14,19 +14,22 @@ class MovieGalleryWidget extends StatelessWidget {
       title: context.l10n.movieGallery,
       onTap: () {},
       maxHeight: MediaQuery.of(context).size.height * 0.1,
-      child: ListView.separated(
-        separatorBuilder: (context, index) => SizedBox(width: 8),
-        scrollDirection: Axis.horizontal,
-        itemBuilder: (context, index) {
-          return ImageWidget(
-            aspectRatio: 16 / 9,
-            margin: index == 0 ? const EdgeInsets.only(left: 16) : null,
-            imageUrl: images[index],
-          );
-        },
-        itemCount: 10,
-        shrinkWrap: true,
-      ),
+      error: 'Галерея пуста',
+      child: images.isEmpty
+          ? null
+          : ListView.separated(
+              separatorBuilder: (context, index) => SizedBox(width: 8),
+              scrollDirection: Axis.horizontal,
+              itemBuilder: (context, index) {
+                return ImageWidget(
+                  aspectRatio: 16 / 9,
+                  margin: index == 0 ? const EdgeInsets.only(left: 16) : null,
+                  imageUrl: images[index],
+                );
+              },
+              itemCount: images.length < 10 ? images.length : 10,
+              shrinkWrap: true,
+            ),
     );
   }
 }

@@ -8,13 +8,18 @@ class CategoryWidget extends StatelessWidget {
     required this.title,
     required this.onTap,
     this.maxHeight,
-    required this.child,
-  });
+    this.child,
+    this.error,
+  }) : assert(
+        child != null || error != null,
+        'If "child" is null, "error" must not be null',
+      );
 
   final String title;
   final void Function() onTap;
   final double? maxHeight;
-  final Widget child;
+  final Widget? child;
+  final String? error;
 
   @override
   Widget build(BuildContext context) {
@@ -34,12 +39,23 @@ class CategoryWidget extends StatelessWidget {
             ),
           ),
         ),
-        ConstrainedBox(
-          constraints: BoxConstraints(
-            maxHeight: maxHeight ?? MediaQuery.of(context).size.height * 0.3,
+        if (child != null)
+          ConstrainedBox(
+            constraints: BoxConstraints(
+              maxHeight: maxHeight ?? MediaQuery.of(context).size.height * 0.3,
+            ),
+            child: child,
+          )
+        else
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16),
+            child: Text(
+              error ?? 'Элементов не найдено',
+              style: context.textExt.accentInfo.copyWith(
+                color: context.colorExt.errorColor,
+              ),
+            ),
           ),
-          child: child,
-        ),
       ],
     );
   }
